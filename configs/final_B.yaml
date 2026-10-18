@@ -1,0 +1,10 @@
+# Locked 2026-10-14 before the Project B holdout (2025-07-01..2026-09-30) was opened.
+# Rule: lowest validation load-weighted hourly MAE; simpler model if the gain has a CI including 0.
+final_candidate: G4_lgbm_resid_recent_err      # validation wMAE 1.140 C
+selection_evidence:
+  G4_vs_G1: "-0.022 C, CI [-0.033, -0.012]"
+  G5_vs_G4: "+0.004 C, CI [-0.001, +0.010] -> bigger model not chosen"
+  G3_3seeds: "1.158 vs G1 1.162 (not pursued)"
+  E1_avg_G4_L2_vs_G4: "+0.033 C, CI [+0.023, +0.044]"
+holdout_set: [R0_raw_gfs, R2_raw_blend, B1_rolling_bias30, L2_linear_mos_2024, G1_lgbm_resid, G4_lgbm_resid_recent_err]
+references: [NWS MAV 12Z, NWS MAV 18Z]   # computed on the same rows, not selectable
